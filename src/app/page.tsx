@@ -34,8 +34,8 @@ export default function Home() {
     const generateBoc = async () => {
         try {
             setError(null);
-            const client = new TonClient({ 
-                endpoint: isTestnet 
+            const client = new TonClient({
+                endpoint: isTestnet
                     ? 'https://testnet.toncenter.com/api/v2/jsonRPC'
                     : 'https://toncenter.com/api/v2/jsonRPC'
             });
@@ -60,7 +60,7 @@ export default function Home() {
 
             const intMsg = internal({
                 to: wallet.contract.address,
-                value: 1n,
+                value: BigInt(1),
                 bounce: true,
             });
 
@@ -97,15 +97,15 @@ export default function Home() {
                 boc: boc.toBoc().toString('base64'),
             });
 
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err: unknown) {
+            setError(err instanceof Error ? err.message : 'An unknown error occurred');
         }
     };
 
     return (
         <main className="p-8 max-w-2xl mx-auto">
             <h1 className="text-2xl font-bold mb-6">TON BOC 產生器</h1>
-            
+
             <div className="space-y-4">
                 <div>
                     <label className="block mb-2">
