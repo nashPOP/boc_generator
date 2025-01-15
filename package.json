@@ -12,7 +12,7 @@
   "dependencies": {
     "@ton/crypto": "^3.3.0",
     "@ton/ton": "^15.1.0",
-    "@tonx/adapter": "^2.0.7",
+    "@tonx/adapter": "^2.0.3",
     "@tonx/core": "^1.1.2",
     "next": "15.0.2",
     "react": "19.0.0-rc-02c0e824-20241028",
